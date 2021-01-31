@@ -21,8 +21,8 @@
     
             </ul>
             <div class="btn-container">
-            <button class="open-btn" onclick="openAdd()">Add ToDo</button>
-            <button class="remove-btn" onclick="removeTodos()">Clear ToDos</button>
+                <button class="open-btn" onclick="openAdd()">Add ToDo</button>
+                <button class="remove-btn" onclick="removeTodos()">Clear ToDos</button>
             </div>
         </div>
 
@@ -41,6 +41,9 @@
 
             ipcRenderer.on('todo:add', (event, todo) => {
                 const li = document.createElement('li');
+                li.onclick = function () {
+                    this.parentElement.removeChild(this);
+                };
                 const text = document.createTextNode(todo);
 
                 li.appendChild(text);
