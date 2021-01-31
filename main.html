@@ -10,16 +10,34 @@
         <title>ToDos</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./index.css">
     </head>
     <body>
-        <h1>My ToDos...</h1>
-        <ul>
+        <div class="todo-container">
+            <h1>My ToDos...</h1>
+            <ul>
+    
+            </ul>
+            <div class="btn-container">
+            <button class="open-btn" onclick="openAdd()">Add ToDo</button>
+            <button class="remove-btn" onclick="removeTodos()">Clear ToDos</button>
+            </div>
+        </div>
 
-        </ul>
         <script>
             const electron = require('electron');
             const { ipcRenderer } = electron;
             const list = document.querySelector('ul');
+
+            function openAdd() {
+                ipcRenderer.send('todo:openAdd');
+            }
+
+            function removeTodos() {
+                list.innerHTML = '';
+            }
 
             ipcRenderer.on('todo:add', (event, todo) => {
                 const li = document.createElement('li');

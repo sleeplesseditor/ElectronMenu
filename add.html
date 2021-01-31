@@ -10,15 +10,17 @@
         <title>Add New ToDo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./index.css">
     </head>
     <body>
        <form>
-            <div>
-                <lable>Enter your ToDo</lable>
-                <input autofocus />
+            <div class="todo-form">
+                <label>Enter Your ToDo</label>
+                <input class="todo-form-input" autofocus />
+                <button class="open-btn" type="submit">Add ToDo</button>
             </div>
-            <button type="submit">Add</button>
        </form>
        <script>
            const electron = require('electron');
